@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>EcoTrack | Carbon Footprint Tracker</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: #f5faf5;
+        color: #26382c;
+        line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+        background-color: #174d35;
+        color: white;
+        padding: 18px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    nav h2 {
+        font-size: 25px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 15px;
+    }
+
+    nav a:hover {
+        color: #a9f5bf;
+    }
+
+    /* Hero section */
+    .hero {
+        min-height: 420px;
+        padding: 90px 8%;
+        text-align: center;
+        background: linear-gradient(135deg, #e2f7e8, #f5faf5);
+    }
+
+    .hero h1 {
+        font-size: 42px;
+        color: #174d35;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 18px;
+        max-width: 650px;
+        margin: 0 auto 28px;
+    }
+
+    .button {
+        display: inline-block;
+        background-color: #238653;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 7px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .button:hover {
+        background-color: #174d35;
+    }
+
+    /* General sections */
+    section {
+        padding: 65px 8%;
+        text-align: center;
+    }
+
+    section h2 {
+        color: #174d35;
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    .intro {
+        max-width: 750px;
+        margin: 0 auto 35px;
+    }
+
+    /* Feature cards */
+    .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 22px;
+        margin-top: 30px;
+    }
+
+    .card {
+        background: white;
+        padding: 28px 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        transition: transform 0.2s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card .icon {
+        font-size: 38px;
+        margin-bottom: 12px;
+    }
+
+    .card h3 {
+        color: #238653;
+        margin-bottom: 10px;
+    }
+
+    /* Calculator */
+    #calculator {
+        background-color: #e9f5eb;
+    }
+
+    .calculator-box {
+        max-width: 550px;
+        margin: 25px auto 0;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        text-align: left;
+    }
+
+    .calculator-box label {
+        display: block;
+        margin: 15px 0 6px;
+        font-weight: bold;
+    }
+
+    .calculator-box input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccd8ce;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+
+    .calculator-box .button {
+        width: 100%;
+        margin-top: 22px;
+    }
+
+    #result {
+        display: none;
+        margin-top: 25px;
+        padding: 20px;
+        background-color: #e2f7e8;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    #result h3 {
+        color: #174d35;
+        font-size: 25px;
+    }
+
+    #result p {
+        margin-top: 10px;
+    }
+
+    /* Tips */
+    .tips {
+        background-color: white;
+    }
+
+    .tips ul {
+        max-width: 650px;
+        margin: 25px auto 0;
+        text-align: left;
+    }
+
+    .tips li {
+        margin: 15px 0;
+    }
+
+    /* Footer */
+    footer {
+        background-color: #174d35;
+        color: white;
+        text-align: center;
+        padding: 25px 8%;
+    }
+
+    footer a {
+        color: #a9f5bf;
+    }
+
+    /* Mobile layout */
+    @media (max-width: 600px) {
+        nav {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        nav a {
+            margin: 0 7px;
+        }
+
+        .hero {
+            padding: 65px 6%;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+        }
+
+        section {
+            padding: 45px 6%;
+        }
+
+        .calculator-box {
+            padding: 22px;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- Navigation -->
+<nav>
+    <h2>🌱 EcoTrack</h2>
+
+    <div>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#calculator">Calculator</a>
+        <a href="#tips">Eco Tips</a>
+    </div>
+</nav>
+
+<!-- Homepage -->
+<header class="hero" id="home">
+    <h1>Track Your Carbon Footprint</h1>
+
+    <p>
+        Understand your environmental impact, calculate your estimated
+        carbon emissions, and discover simple ways to protect our planet.
+    </p>
+
+    <a href="#calculator" class="button">Calculate My Footprint 🌍</a>
+</header>
+
+<!-- About -->
+<section id="about">
+    <h2>About EcoTrack</h2>
+
+    <p class="intro">
+        EcoTrack is a carbon footprint tracking system that helps
+        individuals understand the emissions associated with their
+        daily activities. Our goal is to encourage sustainable habits
+        through simple calculations, useful insights, and eco-friendly tips.
+    </p>
+</section>
+
+<!-- Features -->
+<section id="features">
+    <h2>Our Features</h2>
+
+    <p class="intro">
+        Simple tools to help you understand and reduce your environmental impact.
+    </p>
+
+    <div class="features">
+
+        <div class="card">
+            <div class="icon">🚗</div>
+            <h3>Travel Tracking</h3>
+            <p>Estimate emissions from your daily car journeys.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">⚡</div>
+            <h3>Energy Tracking</h3>
+            <p>Estimate emissions associated with electricity consumption.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📊</div>
+            <h3>Footprint Results</h3>
+            <p>View your estimated daily carbon emissions.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌿</div>
+            <h3>Eco-Friendly Tips</h3>
+            <p>Discover practical ways to adopt a greener lifestyle.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Carbon Calculator -->
+<section id="calculator">
+    <h2>Carbon Footprint Calculator</h2>
+
+    <p class="intro">
+        Enter your daily car travel and electricity usage to estimate
+        the carbon emissions associated with these activities.
+    </p>
+
+    <div class="calculator-box">
+
+        <label for="distance">
+            Daily car travel (kilometres)
+        </label>
+
+        <input
+            type="number"
+            id="distance"
+            min="0"
+            step="any"
+            placeholder="Example: 10"
+        >
+
+        <label for="electricity">
+            Daily electricity usage (kWh)
+        </label>
+
+        <input
+            type="number"
+            id="electricity"
+            min="0"
+            step="any"
+            placeholder="Example: 5"
+        >
+
+        <button class="button" onclick="calculateFootprint()">
+            Calculate Emissions
+        </button>
+
+        <div id="result" aria-live="polite">
+            <h3>Your Estimated Footprint</h3>
+
+            <p id="total"></p>
+
+            <p id="travelResult"></p>
+
+            <p id="electricityResult"></p>
+
+            <p>
+                💚 Try using public transport, walking short distances,
+                and saving electricity where possible.
+            </p>
+        </div>
+
+    </div>
+
+    <p style="margin-top: 20px; font-size: 13px;">
+        Educational estimate only. Actual emissions depend on vehicle type,
+        fuel efficiency, electricity source, and location.
+    </p>
+</section>
+
+<!-- Eco Tips -->
+<section class="tips" id="tips">
+    <h2>Simple Ways to Reduce Your Footprint</h2>
+
+    <p class="intro">
+        Small everyday changes can help you build more sustainable habits.
+    </p>
+
+    <ul>
+        <li>🚲 Walk, cycle, or use public transportation when practical.</li>
+        <li>💡 Switch off lights and appliances when they are not needed.</li>
+        <li>🌳 Plant and protect trees in your community.</li>
+        <li>♻️ Reuse items and recycle suitable materials.</li>
+        <li>🥗 Reduce food waste and consider more plant-based meals.</li>
+        <li>🛍️ Choose durable products and avoid unnecessary purchases.</li>
+    </ul>
+</section>
+
+<!-- Call to Action -->
+<section>
+    <h2>Every Small Step Matters 🌍</h2>
+
+    <p class="intro">
+        Start understanding your carbon footprint today and take
+        meaningful steps toward a more sustainable future.
+    </p>
+
+    <a href="#calculator" class="button">Start Tracking</a>
+</section>
+
+<!-- Footer -->
+<footer>
+    <h3>🌱 EcoTrack</h3>
+
+    <p>Track Your Impact. Change Your Future.</p>
+
+    <p>Contact: AddYourEmail@example.com</p>
+
+    <p style="margin-top: 12px;">
+        &copy; <span id="year"></span> EcoTrack. All rights reserved.
+    </p>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    // Illustrative emission factors, not verified local averages.
+    // Replace with suitable, authoritative factors before real-world use.
+    const CAR_EMISSION_FACTOR = 0.192; // kg CO2 per km
+    const ELECTRICITY_EMISSION_FACTOR = 0.70; // kg CO2 per kWh
+
+    function calculateFootprint() {
+        const distanceInput = document.getElementById("distance");
+        const electricityInput = document.getElementById("electricity");
+
+        const distance = Number(distanceInput.value);
+        const electricity = Number(electricityInput.value);
+
+        if (
+            distanceInput.value.trim() === "" ||
+            electricityInput.value.trim() === "" ||
+            !Number.isFinite(distance) ||
+            !Number.isFinite(electricity) ||
+            distance < 0 ||
+            electricity < 0
+        ) {
+            alert("Please enter valid, non-negative values in both fields.");
+            return;
+        }
+
+        const travelEmissions = distance * CAR_EMISSION_FACTOR;
+        const electricityEmissions =
+            electricity * ELECTRICITY_EMISSION_FACTOR;
+
+        const totalEmissions = travelEmissions + electricityEmissions;
+
+        document.getElementById("total").textContent =
+            "Total: " + totalEmissions.toFixed(2) + " kg CO₂ per day";
+
+        document.getElementById("travelResult").textContent =
+            "Car travel: " + travelEmissions.toFixed(2) + " kg CO₂";
+
+        document.getElementById("electricityResult").textContent =
+            "Electricity: " + electricityEmissions.toFixed(2) + " kg CO₂";
+
+        document.getElementById("result").style.display = "block";
+    }
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+```
+
+</body>
+</html>
